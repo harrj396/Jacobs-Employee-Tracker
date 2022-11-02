@@ -29,3 +29,9 @@ const firstQuestion = [
   name: "landingPage"
 }
 ]
+
+function init() {
+  inquirer
+      .prompt(firstQuestion);
+
+  }
