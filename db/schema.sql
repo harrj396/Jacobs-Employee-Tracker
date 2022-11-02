@@ -5,15 +5,20 @@ USE employee_db;
 
 CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
-  name VARCHAR(30) NOT NULL
+  name VARCHAR(30) NOT NULL,
 );
 
-CREATE TABLE reviews (
+CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    movie_id INT,
-    review TEXT NOT NULL,
-    FOREIGN KEY (movie_id)
-    REFERENCES movies(id)
-    ON DELETE SET NULL
+    title VARCHAR(30) NOT NULL,
+    salary DECIMAL,
+    department_id INT NOT NULL,
 );
+
+CREATE TABLE employees (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  role_id INT NOT NULL,
+  manager_id INT,
+  )
