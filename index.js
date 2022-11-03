@@ -22,7 +22,7 @@ const db = mysql.createConnection(
   console.log(`Connected to the employee_db database.`)
 );
 
-const firstQuestion = [ 
+const firstQuestion = [
   { type: "list",
   message: "Please select an option",
   choice: ["View All Employees", "Add Employee", "View All Roles", "Add Role", "View All Departments", "Add Department"],
