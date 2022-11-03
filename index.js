@@ -25,7 +25,7 @@ const db = mysql.createConnection(
 const firstQuestion = [
   { type: "list",
   message: "Please select an option",
-  choice: ["View All Employees", "Add Employee", "View All Roles", "Add Role", "View All Departments", "Add Department"],
+  choices: ["View All Employees", "Add Employee", "View All Roles", "Add Role", "View All Departments", "Add Department"],
   name: "landingPage"
 }
 ]
@@ -35,3 +35,5 @@ function init() {
       .prompt(firstQuestion);
 
   }
+
+  init();
