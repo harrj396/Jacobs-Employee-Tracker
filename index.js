@@ -26,7 +26,7 @@ const firstQuestion = [
   name: "landingPage"
 }
 .then(function (response) {
-  switch.(response.action) {
+  switch(response.action) {
     case 'View All Employees' : employeeView();
       break
 
@@ -44,7 +44,6 @@ const firstQuestion = [
 
     case 'Add Department' : departmentAdd();
       break;
-  
   }
 })
 
