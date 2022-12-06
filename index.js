@@ -30,24 +30,31 @@ const firstQuestion = [
     case 'View All Employees' : employeeView();
       break
 
-    case 'Add Employee' : employeeAdd();
-      break;
+    // case 'Add Employee' : employeeAdd();
+    //   break;
+  // this currently breaks node index,js for these functions being unknown 
+    // case 'View All Roles' : roleView();
+    //   break;
     
-    case 'View All Roles' : roleView();
-      break;
-    
-    case '"Add Role' : roleAdd();
-      break
+    // case '"Add Role' : roleAdd();
+    //   break
 
-    case 'View All Departments' : departmentView();
-      break;
+    // case 'View All Departments' : departmentView();
+    //   break;
 
-    case 'Add Department' : departmentAdd();
-      break;
+    // case 'Add Department' : departmentAdd();
+    //   break;
   }
 })
-
 ]
+
+function employeeView() {
+  db.query(`SELECT * FROM employee`, function(err, data){
+    if (err) throw err;
+    console.log('Every employee');
+    console.table(data)
+  })
+}
 
 function init() {
   inquirer
