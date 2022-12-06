@@ -16,7 +16,7 @@ const db = mysql.createConnection(
     password: 'rootroot',
     database: 'employee_db'
   },
-  console.log(`Connected to the employee_db database.`)
+  console.log(`Connected to employee_db`)
 );
 
 const firstQuestion = [
@@ -25,6 +25,29 @@ const firstQuestion = [
   choices: ["View All Employees", "Add Employee", "View All Roles", "Add Role", "View All Departments", "Add Department"],
   name: "landingPage"
 }
+.then(function (response) {
+  switch.(response.action) {
+    case 'View All Employees' : employeeView();
+      break
+
+    case 'Add Employee' : employeeAdd();
+      break;
+    
+    case 'View All Roles' : roleView();
+      break;
+    
+    case '"Add Role' : roleAdd();
+      break
+
+    case 'View All Departments' : departmentView();
+      break;
+
+    case 'Add Department' : departmentAdd();
+      break;
+  
+  }
+})
+
 ]
 
 function init() {
