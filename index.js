@@ -24,8 +24,9 @@ const firstQuestion = [
   message: "Please select an option",
   choices: ["View All Employees", "Add Employee", "View All Roles", "Add Role", "View All Departments", "Add Department"],
   name: "landingPage"
-}
-.then(function (response) {
+},
+  console.log('you made it this'),
+  (function (response) {
   switch(response.action) {
     case 'View All Employees' : employeeView();
       break
@@ -45,17 +46,18 @@ const firstQuestion = [
     // case 'Add Department' : departmentAdd();
     //   break;
   }
-})
-]
+}),
+
 
 function employeeView() {
   db.query(`SELECT * FROM employee`, function(err, data){
     if (err) throw err;
     console.log('Every employee');
-    console.table(data)
+    console.table(data);
+    firstQuestion()
   })
 }
-
+]
 function init() {
   inquirer
       .prompt(firstQuestion);
