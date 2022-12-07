@@ -19,11 +19,13 @@ const db = mysql.createConnection(
   console.log(`Connected to employee_db`)
 );
 
+let departmentChoice = { choices: ['Sales', 'Finance']}
+
 const firstQuestion = [
   { type: "list",
   message: "Please select an option",
+  name: "landingPage",
   choices: ["View All Employees", "Add Employee", "View All Roles", "Add Role", "View All Departments", "Add Department"],
-  name: "landingPage"
 },
   (function (response) {
   switch(response.action) {
@@ -64,15 +66,15 @@ function departmentAdd() {
   .prompt([
     {
       type: 'input',
+      name: 'addDepartmentName',
       message: 'Enter the name of the department',
-      name: 'addDepartmentName'
     }
   ])
   .then((function (response) {
     db.query(`INSERT INTO department (addDepartmentName) VALUES ('${response.addDepartmentName}')`, function(err,data) {
       if (err) throw err;
       console.log ('Added Department');
-      addDepartmentName.choices.push(response.addDepartmentName);
+      departmentChoice.choices.push(response.addDepartmentName);
       firstQuestion()
     })
   }))
