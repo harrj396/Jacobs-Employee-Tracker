@@ -59,6 +59,24 @@ function departmentView() {
   })
 },
 
+function departmentAdd() {
+  inquirer
+  .prompt([
+    {
+      type: 'input',
+      message: 'Enter the name of the department',
+      name: 'addDepartmentName'
+    }
+  ])
+  .then((function (response) {
+    db.query(`INSERT INTO department (addDepartmentName) VALUES ('${response.addDepartmentName}')`, function(err,data) {
+      if (err) throw err;
+      console.log ('Added Department');
+      addDepartmentName.choices.push(response.addDepartmentName);
+      firstQuestion()
+    })
+  }))
+}
 
 ]
 function init() {
