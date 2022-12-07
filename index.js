@@ -56,6 +56,26 @@ function employeeView() {
     console.table(data);
     firstQuestion()
   })
+},
+
+function employeeAdd() {
+  inquirer
+  .prompt([
+    {
+      message: 'Enter the employees first name',
+      name: 'firstName'
+    },
+
+    {
+      message: 'Enter the employees last name',
+      name: 'lastName'
+    }
+  ])
+
+  // .then((function (response) {
+  //   db.query(`INSERT INTO employee (firstName, lastName) VALUES (`${response.first_name}`, `${response.last_name}`, response, function )
+  //   )
+  // }))
 }
 ]
 function init() {
